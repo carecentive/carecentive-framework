@@ -1,5 +1,5 @@
-const User = require('carecentive-core/models/User');
-const Questionnaire = require('carecentive-core/models/Questionnaire')
+const User = require('@carecentive/carecentive-core/models/User');
+const Questionnaire = require('@carecentive/carecentive-core/models/Questionnaire')
 
 class ActivityService {
 

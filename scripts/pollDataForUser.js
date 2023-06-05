@@ -1,10 +1,10 @@
-const WithingsDataHub = require('carecentive-core/services/WithingsDataHub');
+const WithingsDataHub = require('@carecentive/carecentive-core/services/WithingsDataHub');
 var dotenv = require('dotenv');
 
 // Required before setting up ORM
 dotenv.config();
 
-const { Model, knex } = require('carecentive-core/models/ORM')
+const { Model, knex } = require('@carecentive/carecentive-core/models/ORM')
 
 // Actual data processing
 WithingsDataHub.dataPollBatchUser(1).then(function(){
