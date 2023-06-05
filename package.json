@@ -1,0 +1,37 @@
+{
+  "name": "carecentive-framework",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "insmysql": "npm install mysql",
+    "core-migrate-all": "./node_modules/carecentive-core/npx knex migrate:latest",
+    "migrate-all": "npx knex migrate:latest",
+    "rollback-all": "npx knex migrate:rollback --all",
+    "poll-data": "node scripts/pollData.js",
+    "test-push": "node scripts/WebPush.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "@carecentive/carecentive-core": "^0.9.0",
+    "cookie-parser": "~1.4.4",
+    "crypto-js": "^4.1.1",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "form-data": "^3.0.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.13",
+    "moment": "^2.29.4",
+    "morgan": "~1.9.1",
+    "multiparty": "^4.2.2",
+    "mv": "^2.1.1",
+    "mysql2": "^2.3.3",
+    "node-cron": "^3.0.0",
+    "objection": "^2.2.3",
+    "winston": "^3.3.3"
+  }
+}
