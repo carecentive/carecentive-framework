@@ -1,5 +1,5 @@
 {
-  "name": "carecentive-framework",
+  "name": "@carecentive/carecentive-framework",
   "version": "0.9.1",
   "scripts": {
     "start": "node ./bin/www",
