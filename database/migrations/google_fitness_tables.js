@@ -6,7 +6,7 @@ exports.up = function (knex) {
       table.foreign("user_id").references("users.id");
       table.string("email").notNullable();
       table.string("access_token");
-      table.string("id_token");
+      table.string("id_token", 5000);
       table.string("refresh_token");
       table.timestamps(false, true);
     }),
@@ -16,8 +16,7 @@ exports.up = function (knex) {
       table.foreign("user_id").references("users.id");
       table.string("datatype").notNullable();
       table.json("data");
-      table.datetime("from_date");
-      table.datetime("to_date");
+      table.integer("on_date");
     }),
   ]);
 };
