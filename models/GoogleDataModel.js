@@ -4,7 +4,7 @@ const User = require("@carecentive/carecentive-core/models/User");
 
 // TODO: Improve example, add description
 
-class GoogleDataModel extends Model {
+class GoogleData extends Model {
   static get tableName() {
     return "google_data";
   }
@@ -21,4 +21,4 @@ class GoogleDataModel extends Model {
   };
 }
 
-module.exports = GoogleDataModel;
+module.exports = GoogleData;

@@ -4,9 +4,9 @@ const User = require("@carecentive/carecentive-core/models/User");
 
 // TODO: Improve example, add description
 
-class GoogleUserModel extends Model {
+class GoogleUser extends Model {
   static get tableName() {
-    return "google_user";
+    return "google_users";
   }
 
   static relationMappings = {
@@ -14,11 +14,11 @@ class GoogleUserModel extends Model {
       relation: Model.BelongsToOneRelation,
       modelClass: User,
       join: {
-        from: "google_user.user_id",
+        from: "google_users.user_id",
         to: "user.id",
       },
     },
   };
 }
 
-module.exports = GoogleUserModel;
+module.exports = GoogleUser;
