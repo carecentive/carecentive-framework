@@ -27,6 +27,8 @@ var activityRouter = require("./routes/activities");
 var exampleRouter = require("./routes/examples");
 var googleFitnessRouter = require("./routes/googleFitness");
 
+const dailyUpdate = require("./services/DailyFitnessService");
+
 var app = express();
 
 // view engine setup
