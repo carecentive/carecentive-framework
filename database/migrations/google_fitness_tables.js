@@ -15,8 +15,11 @@ exports.up = function (knex) {
       table.integer("user_id").unsigned().notNullable();
       table.foreign("user_id").references("users.id");
       table.string("datatype").notNullable();
+      table.string("format").notNullable();
+      table.string("value").notNullable();
       table.json("data");
-      table.integer("on_date");
+      table.bigInteger("on_date");
+      table.timestamp("added_on").defaultTo(knex.fn.now());
     }),
   ]);
 };
