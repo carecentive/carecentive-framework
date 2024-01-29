@@ -19,15 +19,15 @@ var callbackRouter = require("@carecentive/carecentive-core/routes/callback");
 var withingsRouter = require("@carecentive/carecentive-core/routes/settings");
 var analyticsRouter = require("@carecentive/carecentive-core/routes/analytics");
 var settingsRouter = require("@carecentive/carecentive-core/routes/settings");
+var googleFitnessRouter = require("@carecentive/carecentive-core/routes/googleFitness");
+
+const dailyUpdate = require("@carecentive/carecentive-core/services/DailyFitnessService");
 
 var adminUsersRouter = require("@carecentive/carecentive-core/routes/admin/users");
 var adminMeasurementsRouter = require("@carecentive/carecentive-core/routes/admin/measurements");
 
 var activityRouter = require("./routes/activities");
 var exampleRouter = require("./routes/examples");
-var googleFitnessRouter = require("./routes/googleFitness");
-
-const dailyUpdate = require("./services/DailyFitnessService");
 
 var app = express();
 
