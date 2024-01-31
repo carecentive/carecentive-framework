@@ -4,7 +4,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var httplogger = require("morgan");
-var cors = require("cors");
+
 setup.setup();
 
 /**
@@ -19,8 +19,11 @@ var callbackRouter = require("@carecentive/carecentive-core/routes/callback");
 var withingsRouter = require("@carecentive/carecentive-core/routes/settings");
 var analyticsRouter = require("@carecentive/carecentive-core/routes/analytics");
 var settingsRouter = require("@carecentive/carecentive-core/routes/settings");
+
+//Google Fitness Router
 var googleFitnessRouter = require("@carecentive/carecentive-core/routes/googleFitness");
 
+//Importing cron-job to initiate auto syncing of daily fitness data from Google Fitness API
 const dailyUpdate = require("@carecentive/carecentive-core/services/DailyFitnessService");
 
 var adminUsersRouter = require("@carecentive/carecentive-core/routes/admin/users");
@@ -45,13 +48,6 @@ require("@carecentive/carecentive-core/models/ORM");
 /**
  * Set up routes
  */
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-    exposedHeaders: ["set-cookie"],
-  })
-);
 app.use(httplogger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -72,7 +68,12 @@ app.use("/api/measurements", measurementRouter);
 app.use("/api/files", fileRouter);
 app.use("/api/analytics", analyticsRouter);
 app.use("/api/settings", settingsRouter);
+
+/**
+ * Router for Google Fitness API
+ */
 app.use("/api/google-fit", googleFitnessRouter);
+
 /**
  * Custom routes
  */
