@@ -17,6 +17,7 @@ var measurementRouter = require('@carecentive/carecentive-core/routes/measuremen
 var fileRouter = require('@carecentive/carecentive-core/routes/files');
 var callbackRouter = require('@carecentive/carecentive-core/routes/callback');
 var withingsRouter = require('@carecentive/carecentive-core/routes/settings');
+var fitbitRouter = require('@carecentive/carecentive-core/routes/fitbit');
 var analyticsRouter = require('@carecentive/carecentive-core/routes/analytics');
 var settingsRouter = require('@carecentive/carecentive-core/routes/settings');
 
@@ -57,6 +58,7 @@ app.use('/api/admin/users', adminUsersRouter);
 app.use('/api/admin/measurements', adminMeasurementsRouter);
 
 app.use('/api/withings', withingsRouter);
+app.use('/api/fitbit', fitbitRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/callback', callbackRouter);
 app.use('/api/questionnaires', questionnaireRouter);
