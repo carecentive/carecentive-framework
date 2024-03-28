@@ -24,7 +24,7 @@ var settingsRouter = require("@carecentive/carecentive-core/routes/settings");
 var googleFitnessRouter = require("@carecentive/carecentive-core/routes/googleFitness");
 
 //Importing cron-job to initiate auto syncing of daily fitness data from Google Fitness API
-const dailyUpdate = require("@carecentive/carecentive-core/services/DailyFitnessService");
+const dailyUpdate = require("./services/DailyFitnessService");
 
 var adminUsersRouter = require("@carecentive/carecentive-core/routes/admin/users");
 var adminMeasurementsRouter = require("@carecentive/carecentive-core/routes/admin/measurements");
