@@ -10,4 +10,4 @@ For example, see `.env.example` file.
 
 Express Router stored in `@carecentive/carecentive-core/routes/googleFitness` contains all the API endpoints necessary for Google Fitness integration. It can be used with express app.
 
-Cron Job `@carecentive/carecentive-core/services/DailyFitnessService` should be imported in the entry file of the express app to initiate auto-synchronisation of Fitness data on daily basis for each users who have provided access
+Cron Job is also created for daily auto-synchronisation of fitness data for each User which collects data everyday at midnight. See file `services/DailyFitnessService.js`. We only need to import the file in the entry point of express app.
