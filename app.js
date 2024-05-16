@@ -29,6 +29,7 @@ const dailyUpdate = require("./services/DailyFitnessService");
 
 var adminUsersRouter = require("@carecentive/carecentive-core/routes/admin/users");
 var adminMeasurementsRouter = require("@carecentive/carecentive-core/routes/admin/measurements");
+var adminGaiaxParticipantsRouter = require("@carecentive/carecentive-core/routes/admin/gaiax/participants");
 
 var activityRouter = require("./routes/activities");
 var exampleRouter = require("./routes/examples");
@@ -60,6 +61,7 @@ app.use(express.static(path.join(__dirname, "public")));
  */
 app.use('/api/admin/users', adminUsersRouter);
 app.use('/api/admin/measurements', adminMeasurementsRouter);
+app.use('/api/admin/gaia-x/participants', adminGaiaxParticipantsRouter);
 
 app.use('/api/withings', withingsRouter);
 app.use('/api/fitbit', fitbitRouter);
