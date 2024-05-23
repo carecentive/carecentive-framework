@@ -1,0 +1,28 @@
+# Use root/example as user/password credentials
+services:
+
+  db:
+    image: mysql:8.4.0
+    ports:
+      - '3306:3306'
+    container_name: cc_mysql
+    command: --mysql-native-password=ON
+    restart: always
+    volumes:
+      - cc_data:/var/lib/mysql
+    env_file: .env
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    networks:
+      - db_network
+
+volumes:
+  cc_data:
+
+networks:
+  db_network:
+    driver: bridge
+

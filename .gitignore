@@ -118,3 +118,9 @@ dist
 
 # All user data
 uploads/*
+
+# JetBrains IDE's files
+.idea/
+
+# ignore public gaia-x files
+public/gaia-x/
