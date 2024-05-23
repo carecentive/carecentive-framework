@@ -12,7 +12,9 @@ Request access to the Garmin Connect Developer Program via this [form](https://w
 
 When accepted, log into the [Garmin Connect Developer Portal](https://developerportal.garmin.com/)
 Navigate to the "Apps" page and create an application. Fill out the form with the according data. 
-The current integration of the Garmin API into Carecentive allows you to pull from the Health API and the Activity API.
+The standard callback url to enter into the form should be "http://localhost:3001/api/auth/garmin/callback", as 3001 is the standard port in the .env.example. This callback url should be set as standard for the backend to correctly handle the callback.
+You can then define a custom callback url (GARMIN_CALLBACK_URL in .env) the user will be redirected to after consenting on the garmin connect page.
+The current integration of the Garmin API into Carecentive allows you to pull data from the Health API and the Activity API.
 Requesting a production level application will give you unrestricted api access, while requesting a evaluation level application will come with rate limiting on your api requests.
 
 ## Step 3
@@ -21,10 +23,16 @@ When the application is approved, navigate to your application and copy your *Co
 
 ## Step 4
 
-Navigate to the table *garmin_api_dev* in your Carecentive mysql database. Be sure there is no other row besides the one you are going to create now.
-Fill out the columns in the table with the copied data. From now on, everytime an api request is made via Carecentive, this data is going to be used to sign it.
+Head to the .env file that you entered your database access credentials before and now enter the consumerkey and consumersecret into the corresponding fields.
 
 ## Example Usage
+
+### Using VUE
+
+Running the vue-example project from the Carecentive.net repo will allow you to see and test some examples usages of the implemented features.
+After running 'npm install' and 'npm run dev' as described in the vue-example readMe, you should be able to direct to the pages /garmin-register, /garmin-daily-summaries and /garmin-all-summaries. You can see mointor the logs in the carecentive-framework terminal for observation of the background processes.
+
+### Using a script
 
 /scripts/pollGarminData.js shows an example of using the functions offered by the implementation. Here is a quick oversight over the functions you can use.
 
