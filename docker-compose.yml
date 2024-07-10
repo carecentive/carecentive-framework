@@ -1,6 +1,22 @@
 # Use root/example as user/password credentials
 services:
 
+  webapp:
+    build:
+      context: ..
+      dockerfile: ./carecentive-framework/Dockerfile
+    ports:
+      - "${HTTP_PORT}:${HTTP_PORT}"
+    container_name: cc_node
+    restart: always
+    volumes:
+      - cc_filesystem:/src
+    env_file: .env
+    networks:
+      - db_network
+    depends_on:
+      - db
+
   db:
     image: mysql:8.4.0
     ports:
@@ -21,6 +37,7 @@ services:
 
 volumes:
   cc_data:
+  cc_filesystem:
 
 networks:
   db_network:
