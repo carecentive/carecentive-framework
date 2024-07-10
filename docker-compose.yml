@@ -10,7 +10,7 @@ services:
     container_name: cc_node
     restart: always
     volumes:
-      - cc_filesystem:/src
+      - ..:/src
     env_file: .env
     networks:
       - db_network
@@ -37,7 +37,6 @@ services:
 
 volumes:
   cc_data:
-  cc_filesystem:
 
 networks:
   db_network:
