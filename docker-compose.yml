@@ -42,8 +42,17 @@ services:
       - '19192:19192'
       - '19193:19193'
       - '19194:19194'
+      - '19291:19291'
     container_name: cc_edc
     restart: always
+    networks:
+      - db_network
+
+  edc-logger:
+    build: ../edc-carecentive-connector/util/http-request-logger
+    ports:
+      - '4000:4000'
+    container_name: cc_edc-request-logger
     networks:
       - db_network
 
