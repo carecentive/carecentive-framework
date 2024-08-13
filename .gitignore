@@ -124,3 +124,6 @@ uploads/*
 
 # ignore public gaia-x files
 public/gaia-x/
+
+# ignore contract storage
+contract_storage/
