@@ -1,6 +1,6 @@
 {
   "name": "@carecentive/carecentive-framework",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "scripts": {
     "start": "node ./bin/www",
     "insmysql": "npm install mysql",
