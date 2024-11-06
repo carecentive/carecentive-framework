@@ -118,3 +118,4 @@ dist
 
 # All user data
 uploads/*
+!uploads/.gitkeep
