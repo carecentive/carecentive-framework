@@ -11,6 +11,7 @@
     "test-push": "node scripts/WebPush.js"
   },
   "dependencies": {
+    "@carecentive/carecentive-core": "^0.9.3",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
