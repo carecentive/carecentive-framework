@@ -23,6 +23,7 @@ var analyticsRouter = require('@carecentive/carecentive-core/routes/analytics');
 var settingsRouter = require('@carecentive/carecentive-core/routes/settings');
 var garminAuthRouter = require('@carecentive/carecentive-core/routes/GarminAuthRoutes');
 var garminRouter = require("./routes/GarminRoutes");
+var sensorsRouter = require('@carecentive/carecentive-core/routes/sensors');
 
 //Google Fitness Router
 var googleFitnessRouter = require("@carecentive/carecentive-core/routes/googleFitness");
@@ -89,6 +90,7 @@ app.use('/api/settings', settingsRouter);
 app.use("/api", garminAuthRouter);  // Ensure the route prefix matches the path used in the request
 app.use("/api/garmin", garminRouter);
 app.use("/api/activities", activityRouter);
+app.use("/api/sensors", sensorsRouter);
 app.use("/api/examples", exampleRouter);
 
 /**
