@@ -1,6 +1,6 @@
 {
   "name": "@carecentive/carecentive-framework",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "scripts": {
     "start": "node ./bin/www",
     "insmysql": "npm install mysql",
@@ -34,6 +34,7 @@
     "node-cron": "^4.5.0",
     "nodemon": "^3.1.14",
     "objection": "^3.1.5",
+    "sqlite3": "^6.0.1",
     "watch": "^0.13.0",
     "winston": "^3.19.0"
   }

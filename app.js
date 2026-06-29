@@ -43,11 +43,11 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 /**
- * Initialize ORM
- * Do not delete this line.
+ * Initialize ORM with the configured database adapter.
+ * DB_CLIENT / DB_FILENAME / DB_HOST etc. are read from .env via database/config.js
  */
-
-require("@carecentive/carecentive-core/models/ORM");
+const knex = require('knex')(require('./database/config')());
+require('@carecentive/carecentive-core/models/ORM').init(knex);
 
 /**
  * Set up routes
@@ -70,9 +70,6 @@ app.use(session({
   cookie: { secure: false } // Set to true if using HTTPS
 }));*/
 
-app.use(express.static(path.join(__dirname, "public")));
-
-require("@carecentive/carecentive-core/models/ORM");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/api/admin/users', adminUsersRouter);
@@ -102,7 +99,7 @@ app.use("/api/google-fit", googleFitnessRouter);
 app.use("/api/activities", activityRouter);
 app.use("/api/examples", exampleRouter);
 
-app.use("*", (req, res) =>
+app.use("/{*path}", (req, res) =>
   res.sendFile(path.join(__dirname, "public", "index.html"))
 );
 

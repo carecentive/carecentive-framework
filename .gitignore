@@ -119,3 +119,6 @@ dist
 # All user data
 uploads/*
 !uploads/.gitkeep
+
+# Local database files
+*.sqlite3

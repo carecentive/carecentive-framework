@@ -1,50 +1,19 @@
-// Update with your config settings.
+require('dotenv').config();
 
-var dotenv = require('dotenv');
-dotenv.config();
+const buildKnexConfig = require('./database/config');
+
+const migrations = {
+  tableName: 'knex_migrations',
+  directory: [
+    './database/migrations',
+    './node_modules/@carecentive/carecentive-core/database/migrations',
+  ],
+};
+
+const config = { ...buildKnexConfig(), migrations };
 
 module.exports = {
-
-  development: {
-    client: 'mysql2',
-    connection: {
-      host:     process.env.MYSQL_HOST,
-      database: process.env.MYSQL_DATABASE,
-      user:     process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD
-    },
-    migrations: {
-      tableName: 'knex_migrations',
-      directory: ['./database/migrations', './node_modules/@carecentive/carecentive-core/database/migrations']
-    }
-  },
-
-  staging: {
-    client: 'mysql2',
-    connection: {
-      host:     process.env.MYSQL_HOST,
-      database: process.env.MYSQL_DATABASE,
-      user:     process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD
-    },
-    migrations: {
-      tableName: 'knex_migrations',
-      directory: ['./database/migrations', './node_modules/@carecentive/carecentive-core/database/migrations']
-    }
-  },
-
-  production: {
-    client: 'mysql2',
-    connection: {
-      host:     process.env.MYSQL_HOST,
-      database: process.env.MYSQL_DATABASE,
-      user:     process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD
-    },
-    migrations: {
-      tableName: 'knex_migrations',
-      directory: ['./database/migrations', './node_modules/@carecentive/carecentive-core/database/migrations']
-    }
-  }
-
+  development: config,
+  staging: config,
+  production: config,
 };
