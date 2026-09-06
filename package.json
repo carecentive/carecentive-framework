@@ -8,7 +8,10 @@
     "migrate-all": "npx knex migrate:latest",
     "rollback-all": "npx knex migrate:rollback --all",
     "poll-data": "node scripts/pollData.js",
-    "test-push": "node scripts/WebPush.js"
+    "test-push": "node scripts/WebPush.js",
+    "test": "node --test \"test/**/*.test.js\"",
+    "test:watch": "node --test --watch \"test/**/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/**/*.test.js\""
   },
   "dependencies": {
     "@carecentive/carecentive-core": "^0.9.4",
@@ -37,5 +40,8 @@
     "sqlite3": "^6.0.1",
     "watch": "^0.13.0",
     "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2"
   }
 }
