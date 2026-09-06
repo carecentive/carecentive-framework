@@ -15,9 +15,10 @@ setup.setup();
 var usersRouter = require('@carecentive/carecentive-core/routes/users');
 var questionnaireRouter = require('@carecentive/carecentive-core/routes/questionnaires');
 var measurementRouter = require('@carecentive/carecentive-core/routes/measurements');
+var journalRouter = require('@carecentive/carecentive-core/routes/journal');
 var fileRouter = require('@carecentive/carecentive-core/routes/files');
 var callbackRouter = require('@carecentive/carecentive-core/routes/callback');
-var withingsRouter = require('@carecentive/carecentive-core/routes/settings');
+var withingsRouter = require('@carecentive/carecentive-core/routes/withings');
 var fitbitRouter = require('@carecentive/carecentive-core/routes/fitbit');
 var analyticsRouter = require('@carecentive/carecentive-core/routes/analytics');
 var settingsRouter = require('@carecentive/carecentive-core/routes/settings');
@@ -80,13 +81,12 @@ app.use('/api/users', usersRouter);
 app.use('/api/callback', callbackRouter);
 app.use('/api/questionnaires', questionnaireRouter);
 app.use('/api/measurements', measurementRouter);
+app.use('/api/journal', journalRouter);
 app.use('/api/files', fileRouter);
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/settings', settingsRouter);
 app.use("/api", garminAuthRouter);  // Ensure the route prefix matches the path used in the request
 app.use("/api/garmin", garminRouter);
-app.use("/api/activities", activityRouter);
-app.use("/api/examples", exampleRouter);
 
 /**
  * Router for Google Fitness API

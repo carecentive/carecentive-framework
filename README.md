@@ -7,7 +7,6 @@ The data hub is responsible for pulling wearable data into the database at regul
 - Tutorials
 - More professional JWT management
 - Improve logging
-- Journal
 - Write documentation
 - Testing
 
